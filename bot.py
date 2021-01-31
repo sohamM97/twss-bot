@@ -23,6 +23,8 @@ async def on_message(message):
 
 	text=message.content
 	prediction=model.predict([text])[0]
+	probability=model.predict_proba([text])[0]
+	print(text, probability)
 	if prediction==1:
 		response = "That's what she said!"
 		await message.channel.send(response)
